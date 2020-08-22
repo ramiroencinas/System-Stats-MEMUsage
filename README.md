@@ -1,4 +1,4 @@
-# System::Stats::MEMsage
+# System::Stats::MEMUsage
 [![Build Status](https://travis-ci.com/ramiroencinas/System-Stats-MEMUsage.svg?branch=master)](https://travis-ci.com/github/ramiroencinas/System-Stats-MEMUsage)
 
 Raku module - Provides Memory Usage statistics.
