@@ -1,0 +1,14 @@
+{
+	"perl"                    : "6.*",
+	"raku: "                  : "6.*",
+	"name"                    : "System::Stats::MEMUsage",
+    "version"                 : "1.0.0",
+    "provides"                : {
+    "System::Stats::MEMUsage" : "lib/System/Stats/MEMUsage.rakumod"},
+    "description"             : "Provides Memory Usage statistics",
+    "authors"                 : ["Ramiro Encinas Alarza"],
+    "tags"                    : ["system","utils","Memory","Stats","Statistics"],
+    "depends"                 : [ ],	
+    "license"                 : "Artistic-2.0",
+    "source-url"              : "https://github.com/ramiroencinas/System-Stats-MEMUsage.git"    
+}
