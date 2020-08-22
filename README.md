@@ -4,7 +4,7 @@
 Raku module - Provides Memory Usage statistics.
 
 ## OS Supported: ##
-* GNU/Linux by /proc/stat
+* GNU/Linux by /proc/meminfo
 * Win32 by Kernel32/GlobalMemoryStatusEx function Native call
 
 ## Installing the module ##
