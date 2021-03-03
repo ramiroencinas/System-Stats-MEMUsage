@@ -53,7 +53,7 @@ sub win32 ( ) {
   class MEMORYSTATUSEX is repr("CStruct") {
     # DWORD type is uint32 type
     # $.dwLength is rw for indicate the size of the structure later ($data.dwLength = nativesizeof($data))
-    has uint32 $.dwLength is rw; 
+    has uint32 $.dwLength = nativesizeof(::?CLASS); 
     has uint32 $.dwMemoryLoad;
     # DWORDLONG is uint64 type
     has uint64 $.ullTotalPhys;
@@ -72,9 +72,6 @@ sub win32 ( ) {
    
   # Create $data object with MEMORYSTATUSEX class
   my MEMORYSTATUSEX $data .=new;
-
-  # Set $data size to dwLength attribute (is rw)
-  $data.dwLength = nativesizeof($data);
 
   # Get the data
   GlobalMemoryStatusEx($data);
