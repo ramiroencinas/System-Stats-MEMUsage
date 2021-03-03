@@ -51,18 +51,18 @@ sub win32 ( ) {
 
   # https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/ns-sysinfoapi-memorystatusex
   class MEMORYSTATUSEX is repr("CStruct") {
-    # DWORD type is uint32 type
-    # $.dwLength is rw for indicate the size of the structure later ($data.dwLength = nativesizeof($data))
-    has uint32 $.dwLength is rw; 
-    has uint32 $.dwMemoryLoad;
-    # DWORDLONG is uint64 type
-    has uint64 $.ullTotalPhys;
-    has uint64 $.ullAvailPhys;
-    has uint64 $.ullTotalPageFile;
-    has uint64 $.ullAvailPageFile;
-    has uint64 $.ullTotalVirtual;
-    has uint64 $.ullAvailVirtual;
-    has uint64 $.ullAvailExtendedVirtual;
+    my constant DWORD = uint32;
+    my constant DWORDLONG = uint64;
+    # $.dwLength is size of the structure
+    has DWORD $.dwLength = nativesizeof(::?CLASS); 
+    has DWORD $.dwMemoryLoad;
+    has DWORDLONG $.ullTotalPhys;
+    has DWORDLONG $.ullAvailPhys;
+    has DWORDLONG $.ullTotalPageFile;
+    has DWORDLONG $.ullAvailPageFile;
+    has DWORDLONG $.ullTotalVirtual;
+    has DWORDLONG $.ullAvailVirtual;
+    has DWORDLONG $.ullAvailExtendedVirtual;
   };
 
   use NativeCall;
@@ -72,9 +72,6 @@ sub win32 ( ) {
    
   # Create $data object with MEMORYSTATUSEX class
   my MEMORYSTATUSEX $data .=new;
-
-  # Set $data size to dwLength attribute (is rw)
-  $data.dwLength = nativesizeof($data);
 
   # Get the data
   GlobalMemoryStatusEx($data);
